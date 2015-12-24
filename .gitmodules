@@ -1,0 +1,9 @@
+[submodule "opentsdb"]
+	path = storage/opentsdb
+	url = https://github.com/OpenTSDB/opentsdb.git
+[submodule "graphite"]
+	path = storage/graphite
+	url = https://github.com/graphite-project/graphite-web.git
+[submodule "influxdb"]
+	path = storage/influxdb
+	url = https://github.com/influxdb/influxdb.git
