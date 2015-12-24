@@ -1,4 +1,4 @@
-openslack 告警配置和管理页面
+openslack管理平台，包含告警配置、管理、展示以及其他组件(定时任务分发)的管理
 ============
 
 ## Install dependency
