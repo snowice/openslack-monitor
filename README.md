@@ -1,4 +1,4 @@
-# openslack日志收集和时时监控系统
+# openslack日志收集和实时监控系统
 
 ## 技术选型和想法如下
 ### agent组件： flume、colectd、logstash、Heka、statsd、fluentd等数据收集通过gateway上报到当前IDC的kafka，
