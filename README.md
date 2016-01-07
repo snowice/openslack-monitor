@@ -11,3 +11,6 @@
 ### influxdb/opentsdb/graphite做时间序列数据存储
 ### Grafana前端展示
 ### open-falcon可以借鉴
+
+
+参考美团：http://tech.meituan.com/mt-log-system-arch.html

@@ -1,1 +1,3 @@
 # 存储引擎
+
+从kafka中取出数据存入hdfs和elasticsearch
