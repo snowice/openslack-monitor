@@ -14,3 +14,4 @@
 
 
 参考美团：http://tech.meituan.com/mt-log-system-arch.html
+参考文档：http://my.oschina.net/leejun2005/blog/288136
