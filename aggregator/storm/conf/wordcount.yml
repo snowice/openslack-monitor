@@ -1,0 +1,32 @@
+# An ultra-simple topology which shows off Storm and the pyleus.storm library
+
+name: word_count # 自定义拓扑的名字
+
+topology:
+
+    - spout:
+        name: line-spout # 自定义spout组件的名字
+        module: word_count.line_spout # 代码是word_count文件夹下的line_spout.py
+
+    - bolt:
+        name: split-words # 自定义bolt组件的名字
+        module: word_count.split_words # 代码是word_count文件夹下的split_words.py
+        parallelism_hint: 3 # 并发的节点数
+        groupings:
+            - shuffle_grouping: line-spout # 以洗牌模式接收来自line-spout组件的数据流
+
+    - bolt:
+        name: count-words # 自定义bolt的名字
+        module: word_count.count_words # 代码是word_count文件夹下的count_words.py
+        parallelism_hint: 3 # 并发的节点数
+        groupings:
+            - fields_grouping:
+                component: split-words
+                fields:
+                    - word # 以filed grouping模式接收来自split-words组件的数据流，field字段为word。
+
+    - bolt:
+        name: log-results # 自定义bolt的名字
+        module: word_count.log_results # 代码是word_count文件夹下的log_results.py文件
+        groupings:
+            - global_grouping: count-words # 以global grouping方式接收来自count-words组件的数据流

@@ -1,0 +1,30 @@
+# 这里的定义是没有任何操作的，可以通过为它增加bolt来实现功能
+# https://github.com/Yelp/pyleus/tree/develop/examples/kafka_spout)
+name: kafka_spout_example # 自定义topology名字
+
+topology:
+
+    - spout:
+        name: kafka-my_topic # 自定义spout名字
+        type: kafka # 制定类型为kafka
+        options:
+            # 配置kafka的topic
+            topic: my_topic
+
+            # 配置zookeeper地址，多个用逗号隔开
+            zk_hosts: zookeeper1:2181,zookeeper2:2181
+
+            # 配置给kafka存储consumer offsets 的ZooKeeper Root path
+            # 默认为: /pyleus-kafka-offsets/<topology name>
+            zk_root: /pyleus-kafka-offsets/kafka_spout_example
+
+            # Kafka consumer ID.
+            # 默认为: pyleus-<topology name>
+            consumer_id: pyleus-kafka_spout_example
+
+            # 需要从某个offset开始吗
+            # 默认是false.
+            from_start: false
+
+            # 如果需要从某个offset开始则定义该offset
+            start_offset_time: 1398971060
